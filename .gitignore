@@ -48,6 +48,3 @@ yarn-error.*
 CLAUDE.md
 AGENTS.md
 
-# NativeWind setup (push later)
-nativewind-env.d.ts
-tailwind.config.js
