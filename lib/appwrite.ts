@@ -3,13 +3,13 @@ import { CreateUserParams, GetMenuParams, SignInParams } from "@/type";
 
 export const appwriteConfig = {
     endpoint: 'https://nyc.cloud.appwrite.io/v1',
-    projectId: '6a3bde0100378b1da0af',
-    databaseId: '6a3c146f001de1c4737b',
+    projectId: 'YOUR_PROJECT_ID',
+    databaseId: 'YOUR_DATABASE_ID',
     categoriesCollectionId: 'categories',
     customizationsCollectionId: 'customizations',
     menuCollectionId: 'menu',
     menuCustomizationsCollectionId: 'menu_customizations',
-    bucketId: '6a3c14e7002ac8b7b78f',
+    bucketId: 'YOUR_BUCKET_ID',
     platform: "com.yourname.eatzy",
 };
 
