@@ -37,7 +37,7 @@ export const createUser = async ({ email, password, name }: CreateUserParams) =>
 
         return await databases.createDocument(
             appwriteConfig.databaseId,
-            'users',
+            appwriteConfig.userCollectionId,
             ID.unique(),
             { email, name, accountId: newAccount.$id, avatar: avatarUrl },
             [
@@ -76,7 +76,16 @@ export const getCurrentUser = async () => {
     try {
         const currentAccount = await account.get();
         if(!currentAccount) throw Error;
-        return currentAccount;
+
+        const currentUser = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.userCollectionId,
+            [Query.equal('accountId', currentAccount.$id)]
+        );
+
+        if(!currentUser) throw Error;
+
+        return currentUser.documents[0];
     } catch (e) {
         return null;
     }
