@@ -2,15 +2,16 @@ import { Account, Avatars, Client, Databases, ID, Permission, Query, Role, Stora
 import { CreateUserParams, GetMenuParams, SignInParams } from "@/type";
 
 export const appwriteConfig = {
-    endpoint: 'https://nyc.cloud.appwrite.io/v1',
-    projectId: 'YOUR_PROJECT_ID',
-    databaseId: 'YOUR_DATABASE_ID',
-    categoriesCollectionId: 'categories',
-    customizationsCollectionId: 'customizations',
-    menuCollectionId: 'menu',
-    menuCustomizationsCollectionId: 'menu_customizations',
-    bucketId: 'YOUR_BUCKET_ID',
-    platform: "com.yourname.eatzy",
+    endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT!,
+    projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!,
+    platform: process.env.EXPO_PUBLIC_APPWRITE_PLATFORM ?? "com.yourname.eatzy",
+    databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!,
+    bucketId: process.env.EXPO_PUBLIC_APPWRITE_BUCKET_ID!,
+    userCollectionId: process.env.EXPO_PUBLIC_APPWRITE_USER_COLLECTION_ID!,
+    categoriesCollectionId: process.env.EXPO_PUBLIC_APPWRITE_CATEGORIES_COLLECTION_ID!,
+    menuCollectionId: process.env.EXPO_PUBLIC_APPWRITE_MENU_COLLECTION_ID!,
+    customizationsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_CUSTOMIZATIONS_COLLECTION_ID!,
+    menuCustomizationsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_MENU_CUSTOMIZATIONS_COLLECTION_ID!,
 };
 
 export const client = new Client();
