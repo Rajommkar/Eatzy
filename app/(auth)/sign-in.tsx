@@ -48,6 +48,12 @@ const SignIn = () => {
                 secureTextEntry={true}
             />
 
+            <View className="items-end -mt-3 mb-3">
+                <Link href={"/(auth)/forgot-password" as never}>
+                    <Text className="base-bold text-primary">Forgot Password?</Text>
+                </Link>
+            </View>
+
             <CustomButton
                 title="Sign In"
                 isLoading={isSubmitting}

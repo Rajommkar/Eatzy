@@ -138,3 +138,20 @@ export const getCategories = async () => {
         throw new Error(e as string);
     }
 }
+
+export const sendPasswordRecovery = async (email: string) => {
+    try {
+        // We use a dummy URL. The user will copy this link from their email and paste it in the app.
+        await account.createRecovery(email, 'https://eatzy.app/reset');
+    } catch (e) {
+        throw new Error(e as string);
+    }
+}
+
+export const resetPassword = async (userId: string, secret: string, newPassword: string) => {
+    try {
+        await account.updateRecovery(userId, secret, newPassword);
+    } catch (e) {
+        throw new Error(e as string);
+    }
+}
