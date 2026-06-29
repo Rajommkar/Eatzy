@@ -88,7 +88,7 @@ export const getCurrentUser = async () => {
                 userDoc = currentUser.documents[0];
             }
         } catch (e) {
-            console.error("Failed to list documents:", e);
+            console.warn("Failed to list documents:", e);
         }
 
         if (!userDoc) {
@@ -114,7 +114,7 @@ export const getCurrentUser = async () => {
                     ]
                 );
             } catch (err) {
-                console.error("Failed to create missing user document:", err);
+                console.warn("Failed to create missing user document:", err);
                 
                 // Fallback: return a constructed user object so the app doesn't break
                 return {
@@ -129,7 +129,7 @@ export const getCurrentUser = async () => {
 
         return userDoc;
     } catch (e) {
-        console.error("getCurrentUser error:", e);
+        console.warn("getCurrentUser error:", e);
         return null;
     }
 }
