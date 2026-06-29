@@ -22,7 +22,7 @@ const SignUp = () => {
             await createUser({ email, password, name });
             await fetchAuthenticatedUser();
             router.replace('/');
-        } catch(error: any) {
+        } catch(err) { const error = err as Error;
             Alert.alert('Error', error.message);
         } finally {
             setIsSubmitting(false);
@@ -62,7 +62,7 @@ const SignUp = () => {
                 <Text className="base-regular text-gray-100">
                     Already have an account?
                 </Text>
-                <Link href={"/(auth)/sign-in" as any}>
+                <Link href={"/(auth)/sign-in" as never}>
                     <Text className="base-bold text-primary">Sign In</Text>
                 </Link>
             </View>

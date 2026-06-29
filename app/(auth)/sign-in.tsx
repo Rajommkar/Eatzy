@@ -5,6 +5,7 @@ import CustomButton from "@/components/CustomButton";
 import {useState} from "react";
 import {signIn} from "@/lib/appwrite";
 import useAuthStore from "@/store/auth.store";
+import * as Sentry from '@sentry/react-native';
 
 const SignIn = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,8 +23,9 @@ const SignIn = () => {
             await signIn({ email, password });
             await fetchAuthenticatedUser();
             router.replace('/');
-        } catch(error: any) {
+        } catch(err) { const error = err as Error;
             Alert.alert('Error', error.message);
+            Sentry.captureEvent(error);
         } finally {
             setIsSubmitting(false);
         }
@@ -56,7 +58,7 @@ const SignIn = () => {
                 <Text className="base-regular text-gray-100">
                     Don't have an account?
                 </Text>
-                <Link href={"/(auth)/sign-up" as any}>
+                <Link href={"/(auth)/sign-up" as never}>
                     <Text className="base-bold text-primary">Sign up</Text>
                 </Link>
             </View>

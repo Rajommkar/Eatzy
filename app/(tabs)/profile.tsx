@@ -39,7 +39,7 @@ const Profile = () => {
                             await signOut()
                             setIsAuthenticated(false)
                             setUser(null)
-                            router.replace('/(auth)/sign-in' as any)
+                            router.replace('/(auth)/sign-in' as never)
                         } catch (e: any) {
                             Alert.alert('Error', e.message)
                         } finally {

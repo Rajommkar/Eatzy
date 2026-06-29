@@ -24,7 +24,7 @@ export default function Index() {
                               className={cn("offer-card", isEven ? 'flex-row-reverse' : 'flex-row')}
                               style={{ backgroundColor: item.color }}
                               android_ripple={{ color: "#ffffff22"}}
-                              onPress={() => router.push({ pathname: '/(tabs)/search', params: { query: item.searchQuery } } as any)}
+                              onPress={() => router.push({ pathname: '/(tabs)/search', params: { query: item.searchQuery } } as never)}
                           >
                               {({ pressed }) => (
                                   <Fragment>

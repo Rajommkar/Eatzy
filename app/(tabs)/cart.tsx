@@ -38,7 +38,7 @@ const EmptyCart = () => (
         </Text>
         <TouchableOpacity
             className="bg-primary rounded-full px-10 py-4 flex-row items-center gap-x-2"
-            onPress={() => router.push('/(tabs)/search' as any)}
+            onPress={() => router.push('/(tabs)/search' as never)}
             activeOpacity={0.8}
         >
             <Image source={images.search} className="size-5" resizeMode="contain" tintColor="#ffffff" />
