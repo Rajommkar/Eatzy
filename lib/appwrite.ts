@@ -75,41 +75,61 @@ export const signOut = async () => {
 export const getCurrentUser = async () => {
     try {
         const currentAccount = await account.get();
-        if(!currentAccount) throw Error;
+        if(!currentAccount) return null;
 
-        const currentUser = await databases.listDocuments(
-            appwriteConfig.databaseId,
-            appwriteConfig.userCollectionId,
-            [Query.equal('accountId', currentAccount.$id)]
-        );
-
-        if(!currentUser) throw Error;
-
-        // If the user document doesn't exist but the auth account does, recreate it
-        if (currentUser.documents.length === 0) {
-            const avatarUrl = avatars.getInitialsURL(currentAccount.name || 'User');
-            
-            const newDoc = await databases.createDocument(
+        let userDoc = null;
+        try {
+            const currentUser = await databases.listDocuments(
                 appwriteConfig.databaseId,
                 appwriteConfig.userCollectionId,
-                ID.unique(),
-                { 
-                    email: currentAccount.email, 
-                    name: currentAccount.name || 'User', 
-                    accountId: currentAccount.$id, 
-                    avatar: avatarUrl 
-                },
-                [
-                    Permission.read(Role.any()),
-                    Permission.update(Role.user(currentAccount.$id)),
-                    Permission.delete(Role.user(currentAccount.$id)),
-                ]
+                [Query.equal('accountId', currentAccount.$id)]
             );
-            return newDoc;
+            if (currentUser && currentUser.documents.length > 0) {
+                userDoc = currentUser.documents[0];
+            }
+        } catch (e) {
+            console.error("Failed to list documents:", e);
         }
 
-        return currentUser.documents[0];
+        if (!userDoc) {
+            // Attempt to recreate the user document
+            try {
+                // Use a default avatar URL to avoid any avatars.getInitials errors
+                const avatarUrl = "https://ui-avatars.com/api/?name=" + encodeURIComponent(currentAccount.name || 'User');
+                
+                userDoc = await databases.createDocument(
+                    appwriteConfig.databaseId,
+                    appwriteConfig.userCollectionId,
+                    ID.unique(),
+                    { 
+                        email: currentAccount.email, 
+                        name: currentAccount.name || 'User', 
+                        accountId: currentAccount.$id, 
+                        avatar: avatarUrl 
+                    },
+                    [
+                        Permission.read(Role.any()),
+                        Permission.update(Role.user(currentAccount.$id)),
+                        Permission.delete(Role.user(currentAccount.$id)),
+                    ]
+                );
+            } catch (err) {
+                console.error("Failed to create missing user document:", err);
+                
+                // Fallback: return a constructed user object so the app doesn't break
+                return {
+                    $id: currentAccount.$id,
+                    accountId: currentAccount.$id,
+                    email: currentAccount.email,
+                    name: currentAccount.name || 'User',
+                    avatar: "https://ui-avatars.com/api/?name=" + encodeURIComponent(currentAccount.name || 'User')
+                };
+            }
+        }
+
+        return userDoc;
     } catch (e) {
+        console.error("getCurrentUser error:", e);
         return null;
     }
 }

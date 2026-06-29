@@ -22,7 +22,13 @@ const SignIn = () => {
         try {
             await signIn({ email, password });
             await fetchAuthenticatedUser();
-            router.replace('/');
+            
+            const { isAuthenticated } = useAuthStore.getState();
+            if (isAuthenticated) {
+                router.replace('/');
+            } else {
+                Alert.alert('Error', 'Logged in successfully, but failed to fetch your profile document from the database.');
+            }
         } catch(err) { const error = err as Error;
             Alert.alert('Error', error.message);
             Sentry.captureEvent(error);
