@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity, Alert, ScrollView, ActivityIndicator } from 'react-native'
+import { View, Text, Image, ImageSourcePropType, TouchableOpacity, Alert, ScrollView, ActivityIndicator } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import useAuthStore from '@/store/auth.store'
 import { images } from '@/constants'
@@ -7,7 +7,7 @@ import { router } from 'expo-router'
 import { useState } from 'react'
 import seed from '@/lib/seed'
 
-const ProfileField = ({ icon, label, value }: { icon: any; label: string; value: string }) => (
+const ProfileField = ({ icon, label, value }: { icon: ImageSourcePropType; label: string; value: string }) => (
     <View className="profile-field">
         <View className="profile-field__icon">
             <Image source={icon} className="size-5" resizeMode="contain" tintColor="#FE8C00" />
@@ -40,8 +40,8 @@ const Profile = () => {
                             setIsAuthenticated(false)
                             setUser(null)
                             router.replace('/(auth)/sign-in' as never)
-                        } catch (e: any) {
-                            Alert.alert('Error', e.message)
+                        } catch (e: unknown) {
+                            Alert.alert('Error', e instanceof Error ? e.message : 'An error occurred')
                         } finally {
                             setIsLoggingOut(false)
                         }
@@ -64,8 +64,8 @@ const Profile = () => {
                         try {
                             await seed()
                             Alert.alert('✅ Success', 'Menu data has been added! Go to the Search tab to see all foods.')
-                        } catch (e: any) {
-                            Alert.alert('Error', e.message || 'Something went wrong during seeding.')
+                        } catch (e: unknown) {
+                            Alert.alert('Error', e instanceof Error ? e.message : 'Something went wrong during seeding.')
                         } finally {
                             setIsSeeding(false)
                         }

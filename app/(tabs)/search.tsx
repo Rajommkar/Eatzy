@@ -37,6 +37,7 @@ const Search = () => {
 
     useEffect(() => {
         refetch({ category, query, limit: 20})
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [category, query]);
 
     return (
