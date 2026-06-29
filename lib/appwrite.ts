@@ -85,6 +85,29 @@ export const getCurrentUser = async () => {
 
         if(!currentUser) throw Error;
 
+        // If the user document doesn't exist but the auth account does, recreate it
+        if (currentUser.documents.length === 0) {
+            const avatarUrl = avatars.getInitialsURL(currentAccount.name || 'User');
+            
+            const newDoc = await databases.createDocument(
+                appwriteConfig.databaseId,
+                appwriteConfig.userCollectionId,
+                ID.unique(),
+                { 
+                    email: currentAccount.email, 
+                    name: currentAccount.name || 'User', 
+                    accountId: currentAccount.$id, 
+                    avatar: avatarUrl 
+                },
+                [
+                    Permission.read(Role.any()),
+                    Permission.update(Role.user(currentAccount.$id)),
+                    Permission.delete(Role.user(currentAccount.$id)),
+                ]
+            );
+            return newDoc;
+        }
+
         return currentUser.documents[0];
     } catch (e) {
         return null;
