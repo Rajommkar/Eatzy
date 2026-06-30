@@ -1,21 +1,34 @@
 import {images} from "@/constants";
 import { router, useLocalSearchParams } from "expo-router";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Image, TextInput, TouchableOpacity, View } from "react-native";
 
 const Searchbar = () => {
     const params = useLocalSearchParams<{ query: string }>();
     const [query, setQuery] = useState(params.query ?? '');
 
-    const handleSearch = (text: string) => {
+    // Debounce: update route param 400ms after user stops typing
+    const debounceRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    const handleSearch = useCallback((text: string) => {
         setQuery(text);
 
-        if(!text) router.setParams({ query: undefined });
-    };
+        if (debounceRef.current) clearTimeout(debounceRef.current);
+
+        debounceRef.current = setTimeout(() => {
+            if (text.trim()) {
+                router.setParams({ query: text.trim() });
+            } else {
+                router.setParams({ query: undefined });
+            }
+        }, 400);
+    }, []);
 
     const handleSubmit = () => {
-        if(query?.trim()) router.setParams({ query });
-    }
+        if (debounceRef.current) clearTimeout(debounceRef.current);
+        if (query?.trim()) router.setParams({ query: query.trim() });
+        else router.setParams({ query: undefined });
+    };
 
     return (
         <View className="searchbar">
@@ -27,10 +40,11 @@ const Searchbar = () => {
                 onSubmitEditing={handleSubmit}
                 placeholderTextColor="#A0A0A0"
                 returnKeyType="search"
+                autoCorrect={false}
             />
             <TouchableOpacity
                 className="pr-5"
-                onPress={() => router.setParams({ query })}
+                onPress={handleSubmit}
             >
                 <Image
                     source={images.search}

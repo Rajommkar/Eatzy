@@ -34,11 +34,11 @@ interface DummyData {
 const data = dummyData as DummyData;
 
 // Permissions attached to every created document
+// Note: Appwrite does NOT support 'create' permission on documents.
+// Use 'write' (which covers create+update+delete) or individual read/update/delete.
 const docPermissions = [
     Permission.read(Role.any()),
-    Permission.create(Role.users()),
-    Permission.update(Role.users()),
-    Permission.delete(Role.users()),
+    Permission.write(Role.users()),
 ];
 
 async function seed(): Promise<void> {

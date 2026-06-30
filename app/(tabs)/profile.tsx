@@ -131,7 +131,7 @@ const Profile = () => {
                     <ProfileField
                         icon={images.phone}
                         label="Phone Number"
-                        value="+91 XXXXX XXXXX"
+                        value={user?.phone || 'Not set'}
                     />
                     <ProfileField
                         icon={images.location}

@@ -20,6 +20,7 @@ export interface User extends Models.Document {
     name: string;
     email: string;
     avatar: string;
+    phone?: string;
 }
 
 export interface CartCustomization {
@@ -94,6 +95,7 @@ export interface CreateUserParams {
     email: string;
     password: string;
     name: string;
+    phone?: string;
 }
 
 export interface SignInParams {
@@ -106,3 +108,44 @@ export interface GetMenuParams {
     query?: string;
     limit?: number;
 }
+
+export interface Restaurant {
+    id: string;
+    name: string;
+    cuisine: string;
+    rating: number;
+    distance: number;
+    deliveryTime: number;
+    priceRange: string;
+    emoji: string;
+    color: string;
+    tags: string[];
+    categoryFilter: string;
+}
+
+export interface LocalCustomization {
+    id: string;
+    name: string;
+    price: number;
+    type: string;
+}
+
+export interface LocalMenuItem {
+    $id: string;
+    $collectionId: string;
+    $databaseId: string;
+    $createdAt: string;
+    $updatedAt: string;
+    $permissions: string[];
+    name: string;
+    description: string;
+    image_url: string;
+    price: number;
+    rating: number;
+    calories: number;
+    protein: number;
+    category_name: string;
+    categories: string | null;
+    customizationList: LocalCustomization[];
+}
+

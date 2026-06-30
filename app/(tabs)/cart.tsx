@@ -91,7 +91,10 @@ const Cart = () => {
                             />
                         </View>
 
-                        <CustomButton title="Place Order 🎉" />
+                        <CustomButton
+                            title="Proceed to Payment 💳"
+                            onPress={() => router.push('/payment' as never)}
+                        />
                     </View>
                 )}
             />

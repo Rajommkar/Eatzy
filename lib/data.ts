@@ -217,7 +217,310 @@ const dummyData = {
             category_name: "Sandwiches",
             customizations: ["Bacon", "Tomatoes", "Mozzarella Sticks", "Iced Tea"],
         },
+        {
+            name: "Mushroom Swiss Burger",
+            description: "Sautéed mushrooms, Swiss cheese, garlic aioli",
+            image_url:
+                "https://static.vecteezy.com/system/resources/previews/044/844/600/large_2x/homemade-fresh-tasty-burger-with-meat-and-cheese-classic-cheese-burger-and-vegetable-ai-generated-free-png.png",
+            price: 28.99,
+            rating: 4.6,
+            calories: 580,
+            protein: 27,
+            category_name: "Burgers",
+            customizations: ["Mushrooms", "Extra Cheese", "Fries", "Coke"],
+        },
+        {
+            name: "BBQ Chicken Pizza",
+            description: "Smoky BBQ, grilled chicken, red onion, jalapeños",
+            image_url:
+                "https://static.vecteezy.com/system/resources/previews/023/742/417/large_2x/pepperoni-pizza-isolated-illustration-ai-generative-free-png.png",
+            price: 33.49,
+            rating: 4.8,
+            calories: 720,
+            protein: 35,
+            category_name: "Pizzas",
+            customizations: ["Jalapeños", "Extra Cheese", "Coke", "Garlic Bread"],
+        },
+        {
+            name: "Chicken Shawarma Wrap",
+            description: "Marinated chicken, garlic sauce, pickles, fries",
+            image_url:
+                "https://static.vecteezy.com/system/resources/previews/048/930/603/large_2x/caesar-wrap-grilled-chicken-isolated-on-transparent-background-free-png.png",
+            price: 22.99,
+            rating: 4.7,
+            calories: 510,
+            protein: 30,
+            category_name: "Wraps",
+            customizations: ["Onions", "Tomatoes", "Fries", "Iced Tea"],
+        },
+        {
+            name: "Veggie Delight Bowl",
+            description: "Roasted veggies, hummus, falafel, bulgur",
+            image_url:
+                "https://static.vecteezy.com/system/resources/previews/057/466/374/large_2x/healthy-quinoa-bowl-with-avocado-tomato-and-black-beans-ingredients-free-png.png",
+            price: 22.49,
+            rating: 4.3,
+            calories: 420,
+            protein: 15,
+            category_name: "Bowls",
+            customizations: ["Avocado", "Olives", "Sweet Corn", "Salad"],
+        },
+        {
+            name: "Aloo Tikki Burger",
+            description: "Spiced potato patty, mint chutney, veggies",
+            image_url:
+                "https://static.vecteezy.com/system/resources/previews/060/236/245/large_2x/a-large-hamburger-with-cheese-onions-and-lettuce-free-png.png",
+            price: 18.99,
+            rating: 4.2,
+            calories: 430,
+            protein: 12,
+            category_name: "Burgers",
+            customizations: ["Onions", "Tomatoes", "Fries", "Coke"],
+        },
+        {
+            name: "Pesto Pasta Bowl",
+            description: "Basil pesto, cherry tomatoes, parmesan, pine nuts",
+            image_url:
+                "https://static.vecteezy.com/system/resources/previews/056/106/379/large_2x/top-view-salad-with-chicken-avocado-tomatoes-and-lettuce-free-png.png",
+            price: 25.99,
+            rating: 4.5,
+            calories: 550,
+            protein: 20,
+            category_name: "Bowls",
+            customizations: ["Mushrooms", "Extra Cheese", "Garlic Bread", "Iced Tea"],
+        },
+        {
+            name: "Tex-Mex Burrito",
+            description: "Pulled chicken, corn, peppers, cheddar, sour cream",
+            image_url:
+                "https://static.vecteezy.com/system/resources/previews/055/133/581/large_2x/deliciously-grilled-burritos-filled-with-beans-corn-and-fresh-vegetables-served-with-lime-wedge-and-cilantro-isolated-on-transparent-background-free-png.png",
+            price: 23.49,
+            rating: 4.6,
+            calories: 530,
+            protein: 26,
+            category_name: "Burritos",
+            customizations: ["Jalapeños", "Sweet Corn", "Coke", "Potato Wedges"],
+        },
+        {
+            name: "BLT Sandwich",
+            description: "Crispy bacon, lettuce, tomato, mayo on toasted bread",
+            image_url:
+                "https://static.vecteezy.com/system/resources/previews/047/832/012/large_2x/grilled-sesame-seed-bread-veggie-sandwich-with-tomato-and-onion-free-png.png",
+            price: 21.99,
+            rating: 4.4,
+            calories: 480,
+            protein: 22,
+            category_name: "Sandwiches",
+            customizations: ["Bacon", "Tomatoes", "Extra Cheese", "Iced Tea"],
+        },
+        {
+            name: "Tandoori Wrap",
+            description: "Tandoori chicken, mint raita, sliced onions",
+            image_url:
+                "https://static.vecteezy.com/system/resources/previews/057/913/530/large_2x/delicious-wraps-a-tantalizing-array-of-wraps-filled-with-vibrant-vegetables-succulent-fillings-and-fresh-ingredients-artfully-arranged-for-a-mouthwatering-culinary-experience-free-png.png",
+            price: 24.49,
+            rating: 4.7,
+            calories: 490,
+            protein: 29,
+            category_name: "Wraps",
+            customizations: ["Jalapeños", "Onions", "Fries", "Coke"],
+        },
+        {
+            name: "Cheesy Garlic Pizza",
+            description: "Triple cheese, roasted garlic, herbs",
+            image_url:
+                "https://static.vecteezy.com/system/resources/previews/058/700/845/large_2x/free-isolated-on-transparent-background-delicious-pizza-topped-with-fresh-tomatoes-basil-and-melted-cheese-perfect-for-food-free-png.png",
+            price: 28.49,
+            rating: 4.4,
+            calories: 640,
+            protein: 24,
+            category_name: "Pizzas",
+            customizations: ["Extra Cheese", "Garlic Bread", "Coke", "Olives"],
+        },
+        {
+            name: "Falafel Wrap",
+            description: "Crispy falafel, hummus, tahini, fresh veggies",
+            image_url:
+                "https://static.vecteezy.com/system/resources/previews/048/930/603/large_2x/caesar-wrap-grilled-chicken-isolated-on-transparent-background-free-png.png",
+            price: 20.49,
+            rating: 4.3,
+            calories: 440,
+            protein: 16,
+            category_name: "Wraps",
+            customizations: ["Tomatoes", "Olives", "Salad", "Iced Tea"],
+        },
+        {
+            name: "Teriyaki Chicken Bowl",
+            description: "Teriyaki glazed chicken, steamed rice, edamame",
+            image_url:
+                "https://static.vecteezy.com/system/resources/previews/056/106/379/large_2x/top-view-salad-with-chicken-avocado-tomatoes-and-lettuce-free-png.png",
+            price: 28.99,
+            rating: 4.9,
+            calories: 560,
+            protein: 36,
+            category_name: "Bowls",
+            customizations: ["Sweet Corn", "Avocado", "Iced Tea", "Salad"],
+        },
     ],
 };
+
+// ─── Local data formatted as Appwrite documents ───────────────────────────────
+// Used as a fallback when Appwrite is not reachable or not seeded yet.
+
+const ts = new Date().toISOString();
+
+export const LOCAL_CATEGORIES = dummyData.categories.map((cat, i) => ({
+    $id: `local_cat_${i + 1}`,
+    $collectionId: 'categories',
+    $databaseId: 'eatzy',
+    $createdAt: ts,
+    $updatedAt: ts,
+    $permissions: [] as string[],
+    name: cat.name,
+    description: cat.description,
+}));
+
+export const LOCAL_CUSTOMIZATIONS = dummyData.customizations.map((c, i) => ({
+    $id: `local_cus_${i + 1}`,
+    name: c.name,
+    price: c.price,
+    type: c.type,
+}));
+
+export const LOCAL_MENU_ITEMS = dummyData.menu.map((item, i) => {
+    const catIndex = dummyData.categories.findIndex(c => c.name === item.category_name);
+    return {
+        $id: `local_menu_${i + 1}`,
+        $collectionId: 'menu',
+        $databaseId: 'eatzy',
+        $createdAt: ts,
+        $updatedAt: ts,
+        $permissions: [] as string[],
+        name: item.name,
+        description: item.description,
+        image_url: item.image_url,
+        price: item.price,
+        rating: item.rating,
+        calories: item.calories,
+        protein: item.protein,
+        category_name: item.category_name,
+        categories: catIndex >= 0 ? `local_cat_${catIndex + 1}` : null,
+        // Expand customizations as objects for the detail screen
+        customizationList: item.customizations.map((cusName) => {
+            const found = dummyData.customizations.find(c => c.name === cusName);
+            return found
+                ? { id: `local_cus_${dummyData.customizations.indexOf(found) + 1}`, name: found.name, price: found.price, type: found.type }
+                : { id: cusName, name: cusName, price: 0, type: 'topping' };
+        }),
+    };
+});
+
+// ─── Restaurants (local, for the Restaurants tab) ────────────────────────────
+export const LOCAL_RESTAURANTS = [
+    {
+        id: 'rest_1',
+        name: "Burger Republic",
+        cuisine: "Burgers",
+        rating: 4.7,
+        distance: 1.2,
+        deliveryTime: 20,
+        priceRange: "₹₹",
+        emoji: "🍔",
+        color: "#D33B0D",
+        tags: ["Bestseller", "Fast Delivery"],
+        categoryFilter: "Burgers",
+    },
+    {
+        id: 'rest_2',
+        name: "Pizza Planet",
+        cuisine: "Pizzas",
+        rating: 4.5,
+        distance: 2.1,
+        deliveryTime: 30,
+        priceRange: "₹₹₹",
+        emoji: "🍕",
+        color: "#084137",
+        tags: ["Popular"],
+        categoryFilter: "Pizzas",
+    },
+    {
+        id: 'rest_3',
+        name: "Wrap & Roll",
+        cuisine: "Wraps",
+        rating: 4.3,
+        distance: 0.8,
+        deliveryTime: 15,
+        priceRange: "₹",
+        emoji: "🌯",
+        color: "#8B5CF6",
+        tags: ["Healthy", "Fast Delivery"],
+        categoryFilter: "Wraps",
+    },
+    {
+        id: 'rest_4',
+        name: "Burrito Brothers",
+        cuisine: "Burritos",
+        rating: 4.6,
+        distance: 3.0,
+        deliveryTime: 35,
+        priceRange: "₹₹",
+        emoji: "🌮",
+        color: "#EB920C",
+        tags: ["Mexican"],
+        categoryFilter: "Burritos",
+    },
+    {
+        id: 'rest_5',
+        name: "The Sandwich Shop",
+        cuisine: "Sandwiches",
+        rating: 4.2,
+        distance: 1.5,
+        deliveryTime: 22,
+        priceRange: "₹",
+        emoji: "🥪",
+        color: "#10B981",
+        tags: ["Healthy"],
+        categoryFilter: "Sandwiches",
+    },
+    {
+        id: 'rest_6',
+        name: "Bowl House",
+        cuisine: "Bowls",
+        rating: 4.8,
+        distance: 2.5,
+        deliveryTime: 28,
+        priceRange: "₹₹",
+        emoji: "🥗",
+        color: "#3B82F6",
+        tags: ["Healthy", "High Protein"],
+        categoryFilter: "Bowls",
+    },
+    {
+        id: 'rest_7',
+        name: "Desi Tadka",
+        cuisine: "Indian",
+        rating: 4.4,
+        distance: 1.8,
+        deliveryTime: 40,
+        priceRange: "₹₹",
+        emoji: "🍛",
+        color: "#F97316",
+        tags: ["Spicy", "Veg Options"],
+        categoryFilter: "Bowls",
+    },
+    {
+        id: 'rest_8',
+        name: "Crave More",
+        cuisine: "Multi-Cuisine",
+        rating: 4.9,
+        distance: 0.5,
+        deliveryTime: 18,
+        priceRange: "₹₹₹",
+        emoji: "⭐",
+        color: "#EF4444",
+        tags: ["Top Rated", "Premium"],
+        categoryFilter: "Burgers",
+    },
+];
 
 export default dummyData;
